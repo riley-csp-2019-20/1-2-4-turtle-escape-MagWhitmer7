@@ -35,18 +35,26 @@ def draw_barrier():
 def up():
   player.setheading(90)
   player.forward(10)
+  player.pendown()
+  player.pencolor("green")
 
 def down():
   player.setheading(270)
   player.forward(10)
+  player.pendown()
+  player.pencolor("red")
 
 def left():
-  player.left(90)
+  player.setheading(180)
   player.forward(10)
+  player.pendown()
+  player.pencolor("green")
 
 def right():
-  player.right(90)
+  player.setheading(0)
   player.forward(10)
+  player.pendown()
+  player.pencolor("green")
 
 # create maze
 for i in range(26):
@@ -82,8 +90,9 @@ for i in range(26):
   line_length += 20 # increase the line size to create a spiral
 
 wn = trtl.Screen()
-wn.onkeypress(up, "up")
-wn.onkeypress(down, "down")
-wn.onkeypress(left, "left")
-wn.onkeypress(right, "right")
+wn.onkeypress(up, "Up")
+wn.onkeypress(down, "Down")
+wn.onkeypress(left, "Left")
+wn.onkeypress(right, "Right")
+wn.listen()
 wn.mainloop()
